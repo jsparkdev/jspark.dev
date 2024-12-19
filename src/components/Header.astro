@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import LogoImage from "~/assets/header/logo.svg";
+import { metadata } from "~/data/site";
+---
+
+<header class="flex items-center justify-between p-4 pt-8">
+  <a href="/" title={metadata.description}>
+    <Image src={LogoImage} alt="A logo image" width={40} />
+  </a>
+  <nav>
+    <ul class="flex gap-6">
+      <li><a href="/about" title="About">About</a></li>
+      <li><a href="/blog" title="Blog">Blog</a></li>
+      <li><a href="/projects" title="Projects">Projects</a></li>
+    </ul>
+  </nav>
+</header>

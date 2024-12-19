@@ -1,0 +1,23 @@
+---
+import BaseHead from "~/components/BaseHead.astro";
+import Header from "~/components/Header.astro";
+import "~/styles/tailwind.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...Astro.props} />
+  </head>
+  <body class="bg-gray-50 px-4 text-gray-700 antialiased">
+    <Header />
+    <main class="mx-auto max-w-4xl py-16">
+      <slot />
+    </main>
+  </body>
+</html>

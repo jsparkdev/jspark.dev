@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { socialLinks } from "~/data/social";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <h1 class="mb-6 text-4xl font-bold">Junseong Park</h1>
+  <p class="mb-8 text-lg">
+    Frontend Developer building and shipping great products while growing in
+    tech.
+  </p>
+  <ul class="flex flex-wrap gap-6">
+    {
+      socialLinks.map(({ name, url, icon: Icon }) => (
+        <li>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-1"
+            title={name}
+          >
+            <Icon size={20} />
+            <span>{name}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
