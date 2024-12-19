@@ -5,6 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://jspark.dev",
   integrations: [sitemap()],
+  markdown: {
+    shikiConfig: {
+      theme: "andromeeda",
+    },
+  },
   experimental: {
     svg: true,
   },
