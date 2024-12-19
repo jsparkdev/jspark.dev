@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import Card from "~/components/AboutCard.astro";
 ---
 
 <BaseLayout title="About Me" description="About Junseong Park">
   <section class="mb-12">
     <h1>About Me</h1>
-    <p class="mb-8 text-lg">
+    <p class="text-lg">
       I'm a frontend developer based in South Korea, well-versed in the Vite and
       React ecosystems. Passionate about open-source, I actively contribute as a
       maintainer of Astro.
@@ -14,68 +15,33 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 
   <div class="grid gap-8 md:grid-cols-2">
     <section class="space-y-6">
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Technical Focus</h2>
-          <p>
-            I focus on modern web development tools and frameworks within the
-            Vite ecosystem. As an Astro maintainer, I strive to enhance web
-            development experiences for developers.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Product Philosophy</h2>
-          <p>
-            I build products that prioritize exceptional user experiences,
-            striking a balance between technical excellence and user value.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Open Source</h2>
-          <p>
-            I actively contribute to open source web technologies, driving
-            innovation and fostering collaboration within the community.
-          </p>
-        </div>
-      </div>
+      <Card title="Technical Focus">
+        I focus on modern web development tools and frameworks within the Vite
+        ecosystem. As an Astro maintainer, I strive to enhance web development
+        experiences for developers.
+      </Card>
+      <Card title="Product Philosophy">
+        I build products that prioritize exceptional user experiences, striking
+        a balance between technical excellence and user value.
+      </Card>
+      <Card title="Open Source">
+        I actively contribute to open source web technologies, driving
+        innovation and fostering collaboration within the community.
+      </Card>
     </section>
-
     <section class="space-y-6">
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Interests & Hobbies</h2>
-          <p>
-            I keep up with tech industry trends through diverse media and relax
-            with videos and music in my downtime.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Personal Goal</h2>
-          <p>
-            I aim to bring fresh perspectives to development, crafting
-            innovative solutions that drive meaningful impact.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div>
-          <h2 class="mb-2 text-xl font-semibold">Community</h2>
-          <p>
-            I thrive in community collaboration, exchanging insights and
-            experiences to empower fellow developers.
-          </p>
-        </div>
-      </div>
+      <Card title="Interests & Hobbies">
+        I keep up with tech industry trends through diverse media and relax with
+        videos and music in my downtime.
+      </Card>
+      <Card title="Personal Goal">
+        I aim to bring fresh perspectives to development, crafting innovative
+        solutions that drive meaningful impact.
+      </Card>
+      <Card title="Community">
+        I thrive in community collaboration, exchanging insights and experiences
+        to empower fellow developers.
+      </Card>
     </section>
   </div>
 </BaseLayout>
