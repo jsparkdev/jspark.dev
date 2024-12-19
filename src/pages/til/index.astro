@@ -1,0 +1,19 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("til");
+---
+
+<BaseLayout title="Today I Learned" description="Today I Learned">
+  <h1>Today I Learned</h1>
+  <ul class="flex flex-col gap-2">
+    {
+      posts.map(({ data, id }) => (
+        <li>
+          <a href={`/til/${id}`}>{data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

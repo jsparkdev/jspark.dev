@@ -1,0 +1,41 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { format, getDatetime } from "~/utils/date";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("til");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, lastModified = date, tags } = post.data;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mb-5">
+    <h1>{title}</h1>
+    <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">
+      <time datetime={getDatetime(date)}> Published on {format(date)}</time>
+      <time datetime={getDatetime(lastModified)}>
+        Updated on {format(lastModified)}
+      </time>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {
+        tags.map((tag) => (
+          <span class="rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  </section>
+  <article>
+    <Content />
+  </article>
+</BaseLayout>
