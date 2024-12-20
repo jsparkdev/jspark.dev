@@ -2,6 +2,7 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import { format, getDatetime } from "~/utils/date";
+import Title from "~/components/Title.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -18,7 +19,7 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
 
 <BaseLayout title={title} description={description} lang={lang}>
   <section class="mb-5">
-    <h1>{title}</h1>
+    <Title>{title}</Title>
     <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">
       <time datetime={getDatetime(date)}> Published on {format(date)}</time>
       <time datetime={getDatetime(lastModified)}>
@@ -35,7 +36,7 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
       }
     </div>
   </section>
-  <article>
+  <article class="prose">
     <Content />
   </article>
 </BaseLayout>

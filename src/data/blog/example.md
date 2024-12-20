@@ -2,6 +2,7 @@
 title: Example Blog Post
 description: This is an example blog post.
 date: 2024-12-19
+category: Example
 tags:
   - React
   - TypeScript
@@ -9,11 +10,11 @@ tags:
 lang: en
 ---
 
-# Example Blog Post
+## Example Blog Post
 
 This is an example blog post. You can write anything you want here. You can use Markdown syntax to format your text.
 
-## Code Block
+### Code Block
 
 You can include code blocks in your blog post.
 

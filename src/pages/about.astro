@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Card from "~/components/AboutCard.astro";
+import Title from "~/components/Title.astro";
 ---
 
 <BaseLayout title="About Me" description="About Junseong Park">
   <section class="mb-12">
-    <h1>About Me</h1>
+    <Title>About Me</Title>
     <p class="text-lg">
       I'm a frontend developer based in South Korea, well-versed in the Vite and
       React ecosystems. Passionate about open-source, I actively contribute as a
@@ -14,7 +15,7 @@ import Card from "~/components/AboutCard.astro";
   </section>
 
   <div class="grid gap-8 md:grid-cols-2">
-    <section class="space-y-6">
+    <div class="space-y-6">
       <Card title="Technical Focus">
         I focus on modern web development tools and frameworks within the Vite
         ecosystem. As an Astro maintainer, I strive to enhance web development
@@ -28,8 +29,8 @@ import Card from "~/components/AboutCard.astro";
         I actively contribute to open source web technologies, driving
         innovation and fostering collaboration within the community.
       </Card>
-    </section>
-    <section class="space-y-6">
+    </div>
+    <div class="space-y-6">
       <Card title="Interests & Hobbies">
         I keep up with tech industry trends through diverse media and relax with
         videos and music in my downtime.
@@ -42,6 +43,6 @@ import Card from "~/components/AboutCard.astro";
         I thrive in community collaboration, exchanging insights and experiences
         to empower fellow developers.
       </Card>
-    </section>
+    </div>
   </div>
 </BaseLayout>

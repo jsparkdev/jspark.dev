@@ -1,38 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --font-sans: "Geist", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-}
-
-a:hover {
-  @apply transition-all duration-200 hover:text-gray-900 hover:underline;
-}
-
-h1 {
-  @apply mb-6 text-4xl font-bold;
-}
-
-article {
-  h2 {
-    @apply pt-3 text-2xl font-semibold text-balance;
-  }
-  h3 {
-    @apply pt-3 text-xl font-semibold text-balance;
-  }
-  h4 {
-    @apply pt-3 text-lg font-semibold text-balance;
-  }
-  p {
-    @apply py-2 text-pretty;
-    & + & {
-      @apply pt-0;
-    }
-    code {
-      @apply text-purple-700;
-    }
-  }
-  pre {
-    @apply my-2 rounded-lg px-2 py-3 xl:px-3;
-  }
 }

@@ -1,0 +1,57 @@
+---
+import { getEntry } from "astro:content";
+import { ClockIcon, GlobeIcon, SquareAndPenIcon, TagIcon } from "~/assets/ui";
+import { format, getDatetime } from "~/utils/date";
+
+const templateEntry = await getEntry("blog", "template");
+
+if (!templateEntry) throw new Error("Template not found");
+
+type Template = typeof templateEntry.data;
+
+interface Props extends Template {}
+
+const { category, lang, title, description, tags, date, lastModified } =
+  Astro.props;
+---
+
+<article class="rounded-xl border border-gray-300 p-4 hover:bg-gray-100">
+  <div class="flex items-center gap-3">
+    <span class="rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
+      {category}
+    </span>
+    <span class="flex items-center gap-1">
+      <GlobeIcon size={16} />
+      {lang === "en" ? "English" : "한국어"}
+    </span>
+  </div>
+  <h2 class="pt-3 text-2xl font-semibold text-balance">{title}</h2>
+  <p class="py-2">{description}</p>
+  <div class="mb-4 flex flex-wrap gap-4">
+    <time datetime={getDatetime(date)} class="flex items-center gap-1">
+      <ClockIcon size={16} />
+      {format(date)}
+    </time>
+    {
+      lastModified && (
+        <time
+          datetime={getDatetime(lastModified)}
+          class="flex items-center gap-1"
+        >
+          <SquareAndPenIcon size={16} /> {format(lastModified)}
+        </time>
+      )
+    }
+  </div>
+  <ul class="flex flex-wrap gap-2">
+    {
+      tags.map((tag) => (
+        <li>
+          <span class="flex items-center gap-1 rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
+            <TagIcon size={16} /> {tag}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</article>

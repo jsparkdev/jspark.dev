@@ -1,22 +1,28 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { projects } from "~/data/projects";
+import Title from "~/components/Title.astro";
+import Link from "~/components/Link.astro";
+import { ExternalLinkIcon } from "~/assets/ui";
 ---
 
 <BaseLayout title="Projects" description="Projects">
-  <h1>Projects</h1>
+  <Title>Projects</Title>
+  <p class="mb-8 text-lg">
+    A curated collection of projects I’ve built—showcasing creativity,
+    problem-solving, and technical expertise.
+  </p>
   <ul class="flex flex-col gap-2">
     {
       projects.map(({ name, description, url }) => (
-        <a
-          href={url}
-          class="rounded-xl border border-gray-300 p-4 hover:bg-gray-200"
-          target="_blank"
-          title={name}
-        >
-          <p class="text-lg font-bold">{name}</p>
-          <p class="text-sm">{description}</p>
-        </a>
+        <li class="rounded-xl border border-gray-300 p-4 hover:bg-gray-100">
+          <Link href={url} target="_blank" title={name}>
+            <p class="mb-2 flex items-center gap-2 text-lg font-bold">
+              {name} <ExternalLinkIcon size={16} />
+            </p>
+            <p class="text-sm">{description}</p>
+          </Link>
+        </li>
       ))
     }
   </ul>

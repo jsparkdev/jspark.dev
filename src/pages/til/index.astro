@@ -1,17 +1,28 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import PostCard from "~/components/PostCard.astro";
+import Title from "~/components/Title.astro";
+import Link from "~/components/Link.astro";
 
-const posts = await getCollection("til");
+const posts = await getCollection("til", ({ data }) => {
+  return data.draft === false;
+});
 ---
 
 <BaseLayout title="Today I Learned" description="Today I Learned">
-  <h1>Today I Learned</h1>
-  <ul class="flex flex-col gap-2">
+  <Title>Today I Learned</Title>
+  <p class="mb-8 text-lg">
+    Documenting daily discoveries in development—small insights, useful tips,
+    and a personal archive to revisit anytime.
+  </p>
+  <ul class="flex flex-col gap-5">
     {
       posts.map(({ data, id }) => (
         <li>
-          <a href={`/til/${id}`}>{data.title}</a>
+          <Link href={`/til/${id}`}>
+            <PostCard {...data} />
+          </Link>
         </li>
       ))
     }

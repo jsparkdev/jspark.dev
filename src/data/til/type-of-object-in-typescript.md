@@ -2,6 +2,7 @@
 title: 객체의 타입
 description: TypeScript에서 객체의 타입을 정의하는 방법에 대해 알아봅니다.
 date: 2024-12-16
+category: TypeScript
 tags:
   - TypeScript
 lang: ko

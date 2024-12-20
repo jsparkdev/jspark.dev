@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { socialLinks } from "~/data/social";
+import { metadata } from "~/data/site";
+import Title from "~/components/Title.astro";
+import Link from "~/components/Link.astro";
 ---
 
-<BaseLayout>
-  <h1>Junseong Park</h1>
+<BaseLayout title={metadata.title} description={metadata.description}>
+  <Title>Junseong Park</Title>
   <p class="mb-8 text-lg">
     Frontend Developer building and shipping great products while growing in
     tech.
@@ -13,16 +16,17 @@ import { socialLinks } from "~/data/social";
     {
       socialLinks.map(({ name, url, icon: Icon }) => (
         <li>
-          <a
+          <Link
             href={url}
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-1"
             title={name}
+            underline
           >
             <Icon size={20} />
             <span>{name}</span>
-          </a>
+          </Link>
         </li>
       ))
     }
