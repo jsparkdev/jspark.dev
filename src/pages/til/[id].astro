@@ -13,10 +13,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, date, lastModified = date, tags } = post.data;
+const { title, description, date, lastModified = date, tags, lang } = post.data;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} lang={lang}>
   <section class="mb-5">
     <h1>{title}</h1>
     <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">

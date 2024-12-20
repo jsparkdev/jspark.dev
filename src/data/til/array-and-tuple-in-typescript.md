@@ -4,6 +4,7 @@ description: TypeScript에서 배열과 튜플을 다루는 방법에 대해 알
 date: 2024-12-16
 tags:
   - TypeScript
+lang: ko
 ---
 
 ## 배열

@@ -6,6 +6,7 @@ tags:
   - React
   - TypeScript
   - Next.js
+lang: en
 ---
 
 # Example Blog Post

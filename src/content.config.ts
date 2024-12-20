@@ -1,6 +1,8 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+export const langs = ["en", "ko"] as const;
+
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
   schema: z.object({
@@ -10,6 +12,7 @@ const blog = defineCollection({
     date: z.date(),
     lastModified: z.date().optional(),
     tags: z.array(z.string()),
+    lang: z.enum(langs),
   }),
 });
 
@@ -22,6 +25,7 @@ const til = defineCollection({
     date: z.date(),
     lastModified: z.date().optional(),
     tags: z.array(z.string()),
+    lang: z.enum(langs),
   }),
 });
 

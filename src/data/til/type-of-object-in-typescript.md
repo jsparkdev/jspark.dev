@@ -4,6 +4,7 @@ description: TypeScript에서 객체의 타입을 정의하는 방법에 대해 
 date: 2024-12-16
 tags:
   - TypeScript
+lang: ko
 ---
 
 ## 타입 별칭과 인터페이스

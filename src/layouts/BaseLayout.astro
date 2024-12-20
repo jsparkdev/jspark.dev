@@ -1,18 +1,22 @@
 ---
 import BaseHead from "~/components/BaseHead.astro";
 import Header from "~/components/Header.astro";
+import type { langs } from "~/content.config";
 import "~/styles/tailwind.css";
 
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  lang?: (typeof langs)[number];
 }
+
+const { title, description, lang = "en" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang === "en" ? "en" : "ko-KR"}>
   <head>
-    <BaseHead {...Astro.props} />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="mb-16 bg-gray-50 px-4 text-gray-700 antialiased">
     <Header />
