@@ -30,7 +30,7 @@ const { category, lang, title, description, tags, date, lastModified } =
   <div class="mb-4 flex flex-wrap gap-4">
     <time datetime={getDatetime(date)} class="flex items-center gap-1">
       <ClockIcon size={16} />
-      {format(date)}
+      {format(date, "en")}
     </time>
     {
       lastModified && (
@@ -38,7 +38,7 @@ const { category, lang, title, description, tags, date, lastModified } =
           datetime={getDatetime(lastModified)}
           class="flex items-center gap-1"
         >
-          <SquareAndPenIcon size={16} /> {format(lastModified)}
+          <SquareAndPenIcon size={16} /> {format(lastModified, "en")}
         </time>
       )
     }
