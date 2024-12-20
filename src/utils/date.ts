@@ -1,5 +1,7 @@
-export function format(date: Date) {
-  const formatter = new Intl.DateTimeFormat("en", {
+import type { langs } from "~/content.config";
+
+export function format(date: Date, lang: (typeof langs)[number]) {
+  const formatter = new Intl.DateTimeFormat(lang, {
     year: "numeric",
     month: "short",
     day: "numeric",

@@ -21,9 +21,13 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
   <section class="mb-5">
     <Title>{title}</Title>
     <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">
-      <time datetime={getDatetime(date)}> Published on {format(date)}</time>
+      <time datetime={getDatetime(date)}>
+        {lang === "en" ? "Published on " : "작성: "}
+        {format(date, lang)}
+      </time>
       <time datetime={getDatetime(lastModified)}>
-        Updated on {format(lastModified)}
+        {lang === "en" ? "Updated on " : "마지막 업데이트: "}
+        {format(lastModified, lang)}
       </time>
     </div>
     <div class="flex flex-wrap gap-3">
