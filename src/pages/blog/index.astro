@@ -12,10 +12,22 @@ const posts = await getCollection("blog", ({ data }) => {
 
 <BaseLayout description="Blog" title="Blog">
   <Title>Blog</Title>
-  <p class="mb-8 text-lg">
+  <p class="mb-8 text-lg text-balance">
     Sharing in-depth stories from the world of software development—challenges,
     solutions, technical decisions, and growth as a developer.
   </p>
+  <article class="my-10 rounded-xl border border-gray-300 bg-gray-200 p-4 py-4">
+    <h2 class="mb-4 text-2xl font-semibold text-balance">
+      Looking for bite-sized insights?
+    </h2>
+    <p class="text-lg text-balance">
+      Explore <Link
+        href="/til"
+        class="text-blue-500 hover:opacity-50"
+        title="Go to TIL page">TIL</Link
+      > page for daily discoveries, quick tips, and personal notes to revisit anytime.
+    </p>
+  </article>
   <ul class="flex flex-col gap-5">
     {
       posts.map(({ data, id }) => (
