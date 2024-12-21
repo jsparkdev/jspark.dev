@@ -6,10 +6,12 @@ import Title from "~/components/Title.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("til");
-  return posts.map((post) => ({
-    params: { id: post.id },
-    props: { post },
-  }));
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { id: post.id },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
