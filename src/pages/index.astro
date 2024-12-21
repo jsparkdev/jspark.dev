@@ -6,7 +6,7 @@ import Title from "~/components/Title.astro";
 import Link from "~/components/Link.astro";
 ---
 
-<BaseLayout title={metadata.title} description={metadata.description}>
+<BaseLayout description={metadata.description} title={metadata.title}>
   <Title>Junseong Park</Title>
   <p class="mb-8 text-lg">
     Frontend Developer building and shipping great products while growing in
@@ -17,10 +17,10 @@ import Link from "~/components/Link.astro";
       socialLinks.map(({ name, url, icon: Icon }) => (
         <li>
           <Link
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
             class="flex items-center gap-1"
+            href={url}
+            rel="noopener noreferrer"
+            target="_blank"
             title={name}
             underline
           >

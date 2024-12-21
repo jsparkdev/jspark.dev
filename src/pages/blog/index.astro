@@ -10,7 +10,7 @@ const posts = await getCollection("blog", ({ data }) => {
 });
 ---
 
-<BaseLayout title="Blog" description="Blog">
+<BaseLayout description="Blog" title="Blog">
   <Title>Blog</Title>
   <p class="mb-8 text-lg">
     Sharing in-depth stories from the world of software development—challenges,
@@ -20,7 +20,7 @@ const posts = await getCollection("blog", ({ data }) => {
     {
       posts.map(({ data, id }) => (
         <li>
-          <Link href={`/blog/${id}`} class="hover:no-underline">
+          <Link class="hover:no-underline" href={`/blog/${id}`}>
             <PostCard {...data} />
           </Link>
         </li>

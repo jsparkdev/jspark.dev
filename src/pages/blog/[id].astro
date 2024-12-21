@@ -17,7 +17,7 @@ const { Content } = await render(post);
 const { title, description, date, lastModified = date, tags, lang } = post.data;
 ---
 
-<BaseLayout title={title} description={description} lang={lang}>
+<BaseLayout description={description} lang={lang} title={title}>
   <section class="mb-5">
     <Title>{title}</Title>
     <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">

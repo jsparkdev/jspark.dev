@@ -16,7 +16,7 @@ const { title, description, lang = "en" } = Astro.props;
 <!doctype html>
 <html lang={lang === "en" ? "en" : "ko-KR"}>
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead description={description} title={title} />
   </head>
   <body class="mb-16 bg-gray-50 px-4 text-gray-700 antialiased">
     <Header />

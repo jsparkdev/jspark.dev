@@ -7,7 +7,6 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "format": "prettier .",
     "format:write": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",

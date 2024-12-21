@@ -11,4 +11,5 @@ export default [
       "astro/sort-attributes": "error",
     },
   },
+  { ignores: [".vscode", "pnpm-lock.yaml", "*.svg", "*.md"] },
 ];

@@ -9,12 +9,12 @@ const { href, underline = false, ...attrs } = Astro.props;
 ---
 
 <a
-  href={href}
   class:list={[
     "transition-all duration-200 hover:text-gray-900",
     attrs.class,
-    underline ? "hover:underline" : "",
+    { "hover:underline": underline },
   ]}
+  href={href}
   {...attrs}
 >
   <slot />

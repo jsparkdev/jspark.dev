@@ -28,15 +28,15 @@ const { category, lang, title, description, tags, date, lastModified } =
   <h2 class="pt-3 text-2xl font-semibold text-balance">{title}</h2>
   <p class="py-2">{description}</p>
   <div class="mb-4 flex flex-wrap gap-4">
-    <time datetime={getDatetime(date)} class="flex items-center gap-1">
+    <time class="flex items-center gap-1" datetime={getDatetime(date)}>
       <ClockIcon size={16} />
       {format(date, "en")}
     </time>
     {
       lastModified && (
         <time
-          datetime={getDatetime(lastModified)}
           class="flex items-center gap-1"
+          datetime={getDatetime(lastModified)}
         >
           <SquareAndPenIcon size={16} /> {format(lastModified, "en")}
         </time>
