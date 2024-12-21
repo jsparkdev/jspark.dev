@@ -7,9 +7,7 @@ const templateEntry = await getEntry("blog", "template");
 
 if (!templateEntry) throw new Error("Template not found");
 
-type Template = typeof templateEntry.data;
-
-interface Props extends Template {}
+type Props = typeof templateEntry.data;
 
 const { category, lang, title, description, tags, date, lastModified } =
   Astro.props;
