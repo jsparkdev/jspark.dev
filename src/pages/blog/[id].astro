@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import { format, getDatetime } from "~/utils/date";
 import Title from "~/components/Title.astro";
+import { TagIcon } from "~/assets/ui";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -19,9 +20,11 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
 ---
 
 <BaseLayout description={description} lang={lang} title={title}>
-  <section class="mb-5">
+  <section class="mb-16">
     <Title>{title}</Title>
-    <div class="mb-3 flex flex-wrap items-center gap-x-6 text-sm">
+    <div
+      class="mb-3 flex flex-col flex-wrap text-sm sm:flex-row sm:items-center sm:gap-4"
+    >
       <time datetime={getDatetime(date)}>
         {lang === "en" ? "Published on " : "작성: "}
         {format(date, lang)}
@@ -34,8 +37,8 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
     <div class="flex flex-wrap gap-3">
       {
         tags.map((tag) => (
-          <span class="rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
-            {tag}
+          <span class="flex items-center gap-1.5 rounded-full bg-gray-200 px-3 py-1 text-sm">
+            <TagIcon size={16} /> {tag}
           </span>
         ))
       }

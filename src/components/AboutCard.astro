@@ -7,8 +7,12 @@ const { title } = Astro.props;
 ---
 
 <article>
-  <h2 class="mb-2 text-xl font-semibold text-balance">{title}</h2>
-  <p class="text-balance">
+  <h2
+    class="mb-4 text-xl leading-tight font-bold text-pretty text-gray-900 sm:text-2xl"
+  >
+    {title}
+  </h2>
+  <p class="mb-4 leading-relaxed text-pretty sm:text-lg sm:text-balance">
     <slot />
   </p>
 </article>

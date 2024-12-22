@@ -5,44 +5,40 @@ import Title from "~/components/Title.astro";
 ---
 
 <BaseLayout description="About Junseong Park" title="About Me">
-  <section class="mb-12">
+  <section class="mb-6 sm:mb-12">
     <Title>About Me</Title>
-    <p class="text-lg text-balance">
+    <p class="leading-relaxed text-pretty sm:text-lg">
       I'm a frontend developer based in South Korea, well-versed in the Vite and
       React ecosystems. Passionate about open-source, I actively contribute as a
       maintainer of Astro.
     </p>
   </section>
 
-  <div class="grid gap-8 md:grid-cols-2">
-    <div class="space-y-6">
-      <Card title="Technical Focus">
-        I focus on modern web development tools and frameworks within the Vite
-        ecosystem. As an Astro maintainer, I strive to enhance web development
-        experiences for developers.
-      </Card>
-      <Card title="Product Philosophy">
-        I build products that prioritize exceptional user experiences, striking
-        a balance between technical excellence and user value.
-      </Card>
-      <Card title="Open Source">
-        I actively contribute to open source web technologies, driving
-        innovation and fostering collaboration within the community.
-      </Card>
-    </div>
-    <div class="space-y-6">
-      <Card title="Interests & Hobbies">
-        I keep up with tech industry trends through diverse media and relax with
-        videos and music in my downtime.
-      </Card>
-      <Card title="Personal Goal">
-        I aim to bring fresh perspectives to development, crafting innovative
-        solutions that drive meaningful impact.
-      </Card>
-      <Card title="Community">
-        I thrive in community collaboration, exchanging insights and experiences
-        to empower fellow developers.
-      </Card>
-    </div>
+  <div class="grid-cols-2 sm:grid">
+    <Card title="Technical Focus">
+      I focus on modern web development tools and frameworks within the Vite
+      ecosystem. As an Astro maintainer, I strive to enhance web development
+      experiences for developers.
+    </Card>
+    <Card title="Product Philosophy">
+      I build products that prioritize exceptional user experiences, striking a
+      balance between technical excellence and user value.
+    </Card>
+    <Card title="Open Source">
+      I actively contribute to open source web technologies, driving innovation
+      and fostering collaboration within the community.
+    </Card>
+    <Card title="Interests & Hobbies">
+      I keep up with tech industry trends through diverse media and relax with
+      videos and music in my downtime.
+    </Card>
+    <Card title="Personal Goal">
+      I aim to bring fresh perspectives to development, crafting innovative
+      solutions that drive meaningful impact.
+    </Card>
+    <Card title="Community">
+      I thrive in community collaboration, exchanging insights and experiences
+      to empower fellow developers.
+    </Card>
   </div>
 </BaseLayout>

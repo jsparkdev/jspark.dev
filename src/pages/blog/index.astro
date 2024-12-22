@@ -10,17 +10,17 @@ const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 <BaseLayout description="Blog" title="Blog">
   <Title>Blog</Title>
-  <p class="mb-8 text-lg text-balance">
+  <p class="mb-6 leading-relaxed text-balance sm:text-lg">
     Sharing in-depth stories from the world of software development—challenges,
     solutions, technical decisions, and growth as a developer.
   </p>
-  <article class="my-10 rounded-xl border border-gray-300 bg-gray-200 p-4 py-4">
+  <article class="mb-5 rounded-xl border border-gray-300 bg-gray-200 p-4 py-4">
     <h2 class="mb-4 text-2xl font-semibold text-balance">
       Looking for bite-sized insights?
     </h2>
-    <p class="text-lg text-balance">
+    <p class="text-balance sm:text-lg">
       Explore <Link
-        class="text-blue-500 hover:opacity-50"
+        class="text-indigo-500 hover:opacity-50"
         href="/til"
         title="Go to TIL page">TIL</Link
       > page for daily discoveries, quick tips, and personal notes to revisit anytime.

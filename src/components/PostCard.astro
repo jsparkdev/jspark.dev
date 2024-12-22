@@ -15,26 +15,28 @@ const { category, lang, title, description, tags, date, lastModified } =
 ---
 
 <article class="rounded-xl border border-gray-300 p-4 hover:bg-gray-100">
-  <div class="flex items-center gap-3">
-    <span class="rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
+  <div class="mb-4 flex items-center gap-4">
+    <span class="rounded-full bg-gray-200 px-3 py-1 text-sm">
       {category}
     </span>
-    <span class="flex items-center gap-1">
+    <span class="flex items-center gap-1 text-sm">
       <GlobeIcon size={16} />
       {lang === "en" ? "English" : "한국어"}
     </span>
   </div>
-  <h2 class="pt-3 text-2xl font-semibold text-balance">{title}</h2>
-  <p class="py-2 text-balance">{description}</p>
-  <div class="mb-4 flex flex-wrap gap-4">
-    <time class="flex items-center gap-1" datetime={getDatetime(date)}>
+  <h2 class="mb-2 text-2xl font-semibold text-balance">
+    {title}
+  </h2>
+  <p class="mb-3 leading-relaxed text-balance sm:text-lg">{description}</p>
+  <div class="mb-2 flex flex-wrap gap-4">
+    <time class="flex items-center gap-1 text-sm" datetime={getDatetime(date)}>
       <ClockIcon size={16} />
       {format(date, "en")}
     </time>
     {
       lastModified && (
         <time
-          class="flex items-center gap-1"
+          class="flex items-center gap-1 text-sm"
           datetime={getDatetime(lastModified)}
         >
           <SquareAndPenIcon size={16} /> {format(lastModified, "en")}
@@ -46,7 +48,7 @@ const { category, lang, title, description, tags, date, lastModified } =
     {
       tags.map((tag) => (
         <li>
-          <span class="flex items-center gap-1 rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors">
+          <span class="flex items-center gap-1.5 rounded-full bg-gray-200 px-3 py-1 text-sm">
             <TagIcon size={16} /> {tag}
           </span>
         </li>

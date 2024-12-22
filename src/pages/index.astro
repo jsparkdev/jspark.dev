@@ -8,11 +8,14 @@ import Link from "~/components/Link.astro";
 
 <BaseLayout description={metadata.description} title={metadata.title}>
   <Title>Junseong Park</Title>
-  <p class="mb-8 text-lg text-balance">
+  <p
+    class="mb-6 leading-relaxed text-balance sm:text-lg"
+    transition:name="page-desc"
+  >
     Frontend Developer building and shipping great products while growing in
     tech.
   </p>
-  <ul class="flex flex-wrap gap-6">
+  <ul class="flex flex-wrap gap-x-6 gap-y-3">
     {
       socialLinks.map(({ name, url, icon: Icon }) => (
         <li>
