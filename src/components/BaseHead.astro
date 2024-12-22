@@ -4,11 +4,11 @@ import { metadata } from "~/data/site";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-interface Props {
+type Props = {
   title: string;
   description: string;
   ogImage?: string;
-}
+};
 
 const { title, description, ogImage = metadata.ogImage } = Astro.props;
 

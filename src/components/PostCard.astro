@@ -4,8 +4,9 @@ import { ClockIcon, GlobeIcon, SquareAndPenIcon, TagIcon } from "~/assets/ui";
 import { format, getDatetime } from "~/utils/date";
 
 const templateEntry = await getEntry("blog", "template");
-
-if (!templateEntry) throw new Error("Template not found");
+if (!templateEntry) {
+  throw new Error("Blog template entry 'template' not found");
+}
 
 type Props = typeof templateEntry.data;
 

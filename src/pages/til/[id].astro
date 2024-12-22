@@ -4,15 +4,14 @@ import { getCollection, render } from "astro:content";
 import { format, getDatetime } from "~/utils/date";
 import Title from "~/components/Title.astro";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("til");
-  return posts
-    .filter((post) => !post.data.draft)
-    .map((post) => ({
-      params: { id: post.id },
-      props: { post },
-    }));
-}
+export const getStaticPaths = async () => {
+  const posts = await getCollection("til", ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+};
 
 const { post } = Astro.props;
 const { Content } = await render(post);

@@ -3,32 +3,30 @@ import { glob } from "astro/loaders";
 
 export const langs = ["en", "ko"] as const;
 
-const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    draft: z.boolean().default(false),
-    date: z.date(),
-    lastModified: z.date().optional(),
-    category: z.string(),
-    tags: z.array(z.string()),
-    lang: z.enum(langs),
-  }),
+export type Lang = (typeof langs)[number];
+export type ContentType = "blog" | "til";
+
+const baseSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  draft: z.boolean().default(false),
+  date: z.date(),
+  lastModified: z.date().optional(),
+  category: z.string(),
+  tags: z.array(z.string()),
+  lang: z.enum(langs),
 });
 
-const til = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/til" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    draft: z.boolean().default(false),
-    date: z.date(),
-    lastModified: z.date().optional(),
-    category: z.string(),
-    tags: z.array(z.string()),
-    lang: z.enum(langs),
-  }),
-});
+const createCollection = (type: ContentType) =>
+  defineCollection({
+    loader: glob({
+      pattern: "**/*.md",
+      base: `./src/data/${type}`,
+    }),
+    schema: baseSchema,
+  });
 
-export const collections = { blog, til };
+export const collections = {
+  blog: createCollection("blog"),
+  til: createCollection("til"),
+};

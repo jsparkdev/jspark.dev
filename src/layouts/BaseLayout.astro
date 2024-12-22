@@ -1,13 +1,13 @@
 ---
 import BaseHead from "~/components/BaseHead.astro";
 import Header from "~/components/Header.astro";
-import type { langs } from "~/content.config";
+import type { Lang } from "~/content.config";
 import "~/styles/tailwind.css";
 
 interface Props {
   title: string;
   description: string;
-  lang?: (typeof langs)[number];
+  lang?: Lang;
 }
 
 const { title, description, lang = "en" } = Astro.props;

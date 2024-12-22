@@ -5,9 +5,7 @@ import PostCard from "~/components/PostCard.astro";
 import Title from "~/components/Title.astro";
 import Link from "~/components/Link.astro";
 
-const posts = await getCollection("blog", ({ data }) => {
-  return data.draft === false;
-});
+const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
 
 <BaseLayout description="Blog" title="Blog">
