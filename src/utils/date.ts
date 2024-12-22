@@ -1,13 +1,10 @@
 import type { Lang } from "~/content.config";
 
-export function format(date: Date, lang: Lang) {
-  return date.toLocaleDateString(lang, {
+export const format = (date: Date, lang: Lang) =>
+  date.toLocaleDateString(lang, {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
-}
 
-export function getDatetime(date: Date) {
-  return date.toISOString().slice(0, 10);
-}
+export const getDatetime = (date: Date) => date.toISOString().slice(0, 10);

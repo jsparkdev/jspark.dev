@@ -4,6 +4,7 @@ import Link from "../ui/Link.astro";
 import Card from "../cards/Card.astro";
 import { ExternalLinkIcon } from "~/assets/ui";
 import { projects } from "~/data/projects";
+import SubTitle from "../ui/SubTitle.astro";
 
 type Props = HTMLAttributes<"ul">;
 
@@ -16,9 +17,9 @@ const { ...attrs } = Astro.props;
       <li>
         <Link href={url} target="_blank" title={name}>
           <Card class="hover:bg-gray-100">
-            <p class="mb-2 flex items-center gap-2 text-lg font-bold">
+            <SubTitle class="flex items-center gap-2">
               {name} <ExternalLinkIcon size={16} />
-            </p>
+            </SubTitle>
             <p class="text-sm">{description}</p>
           </Card>
         </Link>

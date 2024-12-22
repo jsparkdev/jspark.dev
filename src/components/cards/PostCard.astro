@@ -5,6 +5,7 @@ import Description from "~/components/ui/Description.astro";
 import Card from "./Card.astro";
 import PostDateInfo from "~/components/posts/PostDateInfo.astro";
 import TagList from "../posts/TagList.astro";
+import SubTitle from "../ui/SubTitle.astro";
 
 const templateEntry = await getEntry("blog", "template");
 if (!templateEntry) {
@@ -27,10 +28,8 @@ const { category, lang, title, description, tags, date, lastModified } =
       {lang === "en" ? "English" : "한국어"}
     </span>
   </div>
-  <h2 class="mb-2 text-2xl font-semibold text-balance">
-    {title}
-  </h2>
-  <Description class="mb-3 text-pretty">{description}</Description>
+  <SubTitle>{title}</SubTitle>
+  <Description class="mb-3">{description}</Description>
   <PostDateInfo date={date} lang={lang} lastModified={lastModified} />
   <TagList tags={tags} />
 </Card>
