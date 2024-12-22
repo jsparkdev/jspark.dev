@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Link from "../ui/Link.astro";
+import Card from "../cards/Card.astro";
+import { ExternalLinkIcon } from "~/assets/ui";
+import { projects } from "~/data/projects";
+
+type Props = HTMLAttributes<"ul">;
+
+const { ...attrs } = Astro.props;
+---
+
+<ul class:list={["flex flex-col gap-2", attrs.class]} {...attrs}>
+  {
+    projects.map(({ name, description, url }) => (
+      <li>
+        <Link href={url} target="_blank" title={name}>
+          <Card class="hover:bg-gray-100">
+            <p class="mb-2 flex items-center gap-2 text-lg font-bold">
+              {name} <ExternalLinkIcon size={16} />
+            </p>
+            <p class="text-sm">{description}</p>
+          </Card>
+        </Link>
+      </li>
+    ))
+  }
+</ul>

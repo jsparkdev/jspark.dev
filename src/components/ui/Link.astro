@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, ...attrs } = Astro.props;
+---
+
+<a
+  class:list={["transition-all duration-200", attrs.class]}
+  href={href}
+  rel={attrs.target === "_blank" ? "noopener noreferrer" : null}
+  {...attrs}
+>
+  <slot />
+</a>

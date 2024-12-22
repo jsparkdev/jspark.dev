@@ -1,0 +1,38 @@
+---
+import Logo from "~/assets/brands/logo.svg";
+import { metadata } from "~/data/site";
+import Link from "./Link.astro";
+---
+
+<header
+  class="mb-8 flex items-center justify-between px-4 py-8 sm:mb-12 sm:px-12"
+>
+  <a href="/" title={metadata.description}>
+    <Logo size={40} />
+  </a>
+  <nav>
+    <ul class="flex gap-6">
+      <li>
+        <Link
+          class="hover:text-gray-800 hover:underline"
+          href="/about"
+          title="About">About</Link
+        >
+      </li>
+      <li>
+        <Link
+          class="hover:text-gray-800 hover:underline"
+          href="/blog"
+          title="Blog">Blog</Link
+        >
+      </li>
+      <li>
+        <Link
+          class="hover:text-gray-800 hover:underline"
+          href="/projects"
+          title="Projects">Projects</Link
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

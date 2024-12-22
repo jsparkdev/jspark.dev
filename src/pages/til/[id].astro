@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
-import { format, getDatetime } from "~/utils/date";
-import Title from "~/components/Title.astro";
-import { TagIcon } from "~/assets/ui";
+import Title from "~/components/ui/Title.astro";
+import PostDateInfo from "~/components/posts/PostDateInfo.astro";
+import TagList from "~/components/posts/TagList.astro";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("til", ({ data }) => !data.draft);
@@ -22,27 +22,8 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
 <BaseLayout description={description} lang={lang} title={title}>
   <section class="mb-16">
     <Title>{title}</Title>
-    <div
-      class="mb-3 flex flex-col flex-wrap text-sm sm:flex-row sm:items-center sm:gap-4"
-    >
-      <time datetime={getDatetime(date)}>
-        {lang === "en" ? "Published on " : "작성: "}
-        {format(date, lang)}
-      </time>
-      <time datetime={getDatetime(lastModified)}>
-        {lang === "en" ? "Updated on " : "마지막 업데이트: "}
-        {format(lastModified, lang)}
-      </time>
-    </div>
-    <div class="flex flex-wrap gap-3">
-      {
-        tags.map((tag) => (
-          <span class="flex items-center gap-1.5 rounded-full bg-gray-200 px-3 py-1 text-sm">
-            <TagIcon size={16} /> {tag}
-          </span>
-        ))
-      }
-    </div>
+    <PostDateInfo date={date} lang={lang} lastModified={lastModified} />
+    <TagList tags={tags} />
   </section>
   <article class="prose">
     <Content />

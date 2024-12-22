@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { ClockIcon, SquareAndPenIcon } from "~/assets/ui";
+import type { Lang } from "~/content.config";
+import { format, getDatetime } from "~/utils/date";
+
+interface Props extends HTMLAttributes<"div"> {
+  date: Date;
+  lastModified?: Date;
+  lang: Lang;
+}
+
+const { date, lastModified, lang, ...attrs } = Astro.props;
+---
+
+<div class:list={["mb-2 flex flex-wrap gap-4", attrs.class]} {...attrs}>
+  <time class="flex items-center gap-1 text-sm" datetime={getDatetime(date)}>
+    <ClockIcon size={16} />
+    {format(date, lang)}
+  </time>
+  {
+    lastModified && (
+      <time
+        class="flex items-center gap-1 text-sm"
+        datetime={getDatetime(lastModified)}
+      >
+        <SquareAndPenIcon size={16} /> {format(lastModified, lang)}
+      </time>
+    )
+  }
+</div>

@@ -2,6 +2,7 @@
 title: Example Blog Post
 description: This is an example blog post.
 date: 2024-12-19
+lastModified: 2024-12-22
 category: Example
 tags:
   - React

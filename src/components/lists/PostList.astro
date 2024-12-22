@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import PostCard from "../cards/PostCard.astro";
+import Link from "../ui/Link.astro";
+import type { ContentType } from "~/content.config";
+import type { CollectionEntry } from "astro:content";
+
+interface Props extends HTMLAttributes<"ul"> {
+  type: ContentType;
+  posts: CollectionEntry<ContentType>[];
+}
+
+const { type, posts, ...attrs } = Astro.props;
+---
+
+<ul class:list={["flex flex-col gap-5", attrs.class]} {...attrs}>
+  {
+    posts.map(({ data, id }) => (
+      <li>
+        <Link href={`/${type}/${id}`}>
+          <PostCard {...data} />
+        </Link>
+      </li>
+    ))
+  }
+</ul>

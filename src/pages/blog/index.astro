@@ -1,40 +1,32 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import PostCard from "~/components/PostCard.astro";
-import Title from "~/components/Title.astro";
-import Link from "~/components/Link.astro";
+import Title from "~/components/ui/Title.astro";
+import Link from "~/components/ui/Link.astro";
+import Description from "~/components/ui/Description.astro";
+import Card from "~/components/cards/Card.astro";
+import PostList from "~/components/lists/PostList.astro";
 
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
 
 <BaseLayout description="Blog" title="Blog">
   <Title>Blog</Title>
-  <p class="mb-6 leading-relaxed text-balance sm:text-lg">
+  <Description class="mb-6">
     Sharing in-depth stories from the world of software development—challenges,
     solutions, technical decisions, and growth as a developer.
-  </p>
-  <article class="mb-5 rounded-xl border border-gray-300 bg-gray-200 p-4 py-4">
+  </Description>
+  <Card class="mb-5 bg-gray-200">
     <h2 class="mb-4 text-2xl font-semibold text-balance">
       Looking for bite-sized insights?
     </h2>
-    <p class="text-balance sm:text-lg">
+    <Description>
       Explore <Link
-        class="text-indigo-500 hover:opacity-50"
+        class="text-indigo-500 hover:text-indigo-600"
         href="/til"
         title="Go to TIL page">TIL</Link
       > page for daily discoveries, quick tips, and personal notes to revisit anytime.
-    </p>
-  </article>
-  <ul class="flex flex-col gap-5">
-    {
-      posts.map(({ data, id }) => (
-        <li>
-          <Link class="hover:no-underline" href={`/blog/${id}`}>
-            <PostCard {...data} />
-          </Link>
-        </li>
-      ))
-    }
-  </ul>
+    </Description>
+  </Card>
+  <PostList posts={posts} type="blog" />
 </BaseLayout>

@@ -2,33 +2,29 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { socialLinks } from "~/data/social";
 import { metadata } from "~/data/site";
-import Title from "~/components/Title.astro";
-import Link from "~/components/Link.astro";
+import Title from "~/components/ui/Title.astro";
+import Link from "~/components/ui/Link.astro";
+import Description from "~/components/ui/Description.astro";
 ---
 
 <BaseLayout description={metadata.description} title={metadata.title}>
   <Title>Junseong Park</Title>
-  <p
-    class="mb-6 leading-relaxed text-balance sm:text-lg"
-    transition:name="page-desc"
-  >
+  <Description class="mb-6">
     Frontend Developer building and shipping great products while growing in
     tech.
-  </p>
+  </Description>
   <ul class="flex flex-wrap gap-x-6 gap-y-3">
     {
       socialLinks.map(({ name, url, icon: Icon }) => (
         <li>
           <Link
-            class="flex items-center gap-1"
+            class="flex items-center gap-1 hover:text-gray-800 hover:underline"
             href={url}
-            rel="noopener noreferrer"
             target="_blank"
             title={name}
-            underline
           >
             <Icon size={20} />
-            <span>{name}</span>
+            {name}
           </Link>
         </li>
       ))

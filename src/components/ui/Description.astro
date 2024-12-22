@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"p">;
+
+const { ...attrs } = Astro.props;
+---
+
+<p
+  class:list={["leading-relaxed text-pretty sm:text-lg", attrs.class]}
+  {...attrs}
+>
+  <slot />
+</p>
