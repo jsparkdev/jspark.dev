@@ -1,5 +1,7 @@
+.github
 .vscode
-pnpm-lock.yaml
 
 *.svg
 *.md
+*.json
+*.yaml

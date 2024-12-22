@@ -7,8 +7,8 @@ export default tseslint.config(
     ignores: ["**/dist", "**/node_modules", "**/.astro"],
   },
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...eslintPluginAstro.configs.recommended,
+  tseslint.configs.recommended,
+  eslintPluginAstro.configs.recommended,
   {
     rules: {
       "astro/no-exports-from-components": "error",
