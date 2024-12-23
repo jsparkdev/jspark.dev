@@ -4,14 +4,12 @@ import { metadata } from "~/data/site";
 import Link from "./Link.astro";
 ---
 
-<header
-  class="mb-8 flex items-center justify-between px-4 py-8 sm:mb-12 sm:px-12"
->
+<header class="flex items-center justify-between px-[5vw] py-12">
   <a href="/" title={metadata.description}>
     <Logo size={40} />
   </a>
   <nav>
-    <ul class="flex gap-6">
+    <ul class="flex gap-9 lg:text-lg">
       <li>
         <Link
           class="hover:text-gray-800 hover:underline"

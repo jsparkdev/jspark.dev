@@ -18,7 +18,7 @@ const { category, lang, title, description, tags, date, lastModified } =
   Astro.props;
 ---
 
-<Card class="hover:bg-gray-100">
+<Card class="hover:bg-gray-100" title={title}>
   <div class="mb-4 flex items-center gap-4">
     <span class="rounded-full bg-gray-200 px-3 py-1 text-sm">
       {category}

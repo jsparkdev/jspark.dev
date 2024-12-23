@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 import Title from "~/components/ui/Title.astro";
 import TagList from "~/components/posts/TagList.astro";
 import PostDateInfo from "~/components/posts/PostDateInfo.astro";
+import Prose from "~/components/posts/Prose.astro";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -20,12 +21,14 @@ const { title, description, date, lastModified = date, tags, lang } = post.data;
 ---
 
 <BaseLayout description={description} lang={lang} title={title}>
-  <section class="mb-16">
-    <Title>{title}</Title>
-    <PostDateInfo date={date} lang={lang} lastModified={lastModified} />
-    <TagList tags={tags} />
-  </section>
-  <article class="prose">
-    <Content />
-  </article>
+  <div class="md:px-40 lg:px-56">
+    <section class="mb-16">
+      <Title>{title}</Title>
+      <PostDateInfo date={date} lang={lang} lastModified={lastModified} />
+      <TagList tags={tags} />
+    </section>
+    <Prose>
+      <Content />
+    </Prose>
+  </div>
 </BaseLayout>

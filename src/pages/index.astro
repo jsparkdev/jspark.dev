@@ -13,12 +13,12 @@ import Description from "~/components/ui/Description.astro";
     Frontend Developer building and shipping great products while growing in
     tech.
   </Description>
-  <ul class="flex flex-wrap gap-x-6 gap-y-3">
+  <ul class="flex flex-wrap gap-x-8 gap-y-3">
     {
       socialLinks.map(({ name, url, icon: Icon }) => (
         <li>
           <Link
-            class="flex items-center gap-1 hover:text-gray-800 hover:underline"
+            class="flex items-center gap-1 hover:text-gray-800 hover:underline lg:text-lg"
             href={url}
             target="_blank"
             title={name}

@@ -6,6 +6,9 @@ type Props = HTMLAttributes<"p">;
 const { ...attrs } = Astro.props;
 ---
 
-<p class:list={["leading-relaxed text-pretty", attrs.class]} {...attrs}>
+<p
+  class:list={["leading-relaxed text-pretty lg:text-lg", attrs.class]}
+  {...attrs}
+>
   <slot />
 </p>

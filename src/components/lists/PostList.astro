@@ -13,7 +13,13 @@ interface Props extends HTMLAttributes<"ul"> {
 const { type, posts, ...attrs } = Astro.props;
 ---
 
-<ul class:list={["flex flex-col gap-5", attrs.class]} {...attrs}>
+<ul
+  class:list={[
+    "grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3",
+    attrs.class,
+  ]}
+  {...attrs}
+>
   {
     posts.map(({ data, id }) => (
       <li>

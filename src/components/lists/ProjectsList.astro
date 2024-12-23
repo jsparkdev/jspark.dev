@@ -5,13 +5,20 @@ import Card from "../cards/Card.astro";
 import { ExternalLinkIcon } from "~/assets/ui";
 import { projects } from "~/data/projects";
 import SubTitle from "../ui/SubTitle.astro";
+import Description from "../ui/Description.astro";
 
 type Props = HTMLAttributes<"ul">;
 
 const { ...attrs } = Astro.props;
 ---
 
-<ul class:list={["flex flex-col gap-2", attrs.class]} {...attrs}>
+<ul
+  class:list={[
+    "grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3",
+    attrs.class,
+  ]}
+  {...attrs}
+>
   {
     projects.map(({ name, description, url }) => (
       <li>
@@ -20,7 +27,7 @@ const { ...attrs } = Astro.props;
             <SubTitle class="flex items-center gap-2">
               {name} <ExternalLinkIcon size={16} />
             </SubTitle>
-            <p class="text-sm">{description}</p>
+            <Description>{description}</Description>
           </Card>
         </Link>
       </li>
