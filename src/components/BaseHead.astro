@@ -1,8 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { metadata } from "~/data/site";
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
 
 type Props = {
   title: string;
@@ -56,6 +54,3 @@ const ogImageURL = new URL(ogImage, Astro.url);
 <link href="/sitemap-index.xml" rel="sitemap" />
 
 <ClientRouter />
-
-<Analytics />
-<SpeedInsights />
