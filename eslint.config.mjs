@@ -11,9 +11,6 @@ export default tseslint.config(
   ...eslintPluginAstro.configs.recommended,
   {
     rules: {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error",
-
       // Astro
       "astro/no-exports-from-components": "error",
       "astro/prefer-class-list-directive": "error",
@@ -22,6 +19,7 @@ export default tseslint.config(
       "astro/sort-attributes": "error",
 
       // JavaScript
+      "no-unused-vars": "off",
       "func-style": ["error", "expression"],
       "prefer-arrow-callback": "error",
       "prefer-destructuring": "error",
@@ -29,6 +27,7 @@ export default tseslint.config(
       "no-console": "warn",
 
       // TypeScript
+      "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/consistent-type-imports": [
         "error",
         {

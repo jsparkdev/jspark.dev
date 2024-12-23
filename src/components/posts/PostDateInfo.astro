@@ -13,7 +13,7 @@ interface Props extends HTMLAttributes<"div"> {
 const { date, lastModified, lang, ...attrs } = Astro.props;
 ---
 
-<div class:list={["mb-2 flex flex-wrap gap-4", attrs.class]} {...attrs}>
+<div class:list={["mb-2 flex flex-wrap gap-6", attrs.class]} {...attrs}>
   <time class="flex items-center gap-1 text-sm" datetime={getDatetime(date)}>
     <ClockIcon size={16} />
     {format(date, lang)}

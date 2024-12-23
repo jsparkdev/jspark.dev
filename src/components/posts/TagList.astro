@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<"ul"> {
 const { tags, ...attrs } = Astro.props;
 ---
 
-<ul class:list={["flex flex-wrap gap-3", attrs.class]} {...attrs}>
+<ul class:list={["flex flex-wrap gap-2", attrs.class]} {...attrs}>
   {
     tags.map((tag) => (
       <li>
