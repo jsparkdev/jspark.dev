@@ -4,7 +4,7 @@ import { glob } from "astro/loaders";
 export const langs = ["en", "ko"] as const;
 
 export type Lang = (typeof langs)[number];
-export type ContentType = "blog" | "til";
+export type ContentType = "blog";
 
 const baseSchema = z.object({
   title: z.string(),
@@ -28,5 +28,4 @@ const createCollection = (type: ContentType) =>
 
 export const collections = {
   blog: createCollection("blog"),
-  til: createCollection("til"),
 };

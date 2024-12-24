@@ -14,10 +14,7 @@ const { type, posts, ...attrs } = Astro.props;
 ---
 
 <ul
-  class:list={[
-    "grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3",
-    attrs.class,
-  ]}
+  class:list={["grid grid-cols-1 gap-4 lg:grid-cols-2", attrs.class]}
   {...attrs}
 >
   {
