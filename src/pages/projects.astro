@@ -3,13 +3,17 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import Title from "~/components/ui/Title.astro";
 import Description from "~/components/ui/Description.astro";
 import ProjectsList from "~/components/lists/ProjectsList.astro";
+
+const meta = {
+  title: "Projects",
+  description: "Here's my collection of projects that I built.",
+};
 ---
 
-<BaseLayout description="Projects" title="Projects">
-  <Title>Projects</Title>
+<BaseLayout {...meta}>
+  <Title>{meta.title}</Title>
   <Description class="mb-6">
-    A curated collection of projects I’ve built—showcasing creativity,
-    problem-solving, and technical expertise.
+    {meta.description}
   </Description>
   <ProjectsList />
 </BaseLayout>

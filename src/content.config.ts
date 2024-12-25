@@ -17,14 +17,15 @@ const baseSchema = z.object({
   lang: z.enum(langs),
 });
 
-const createCollection = (type: ContentType) =>
-  defineCollection({
+function createCollection(type: ContentType) {
+  return defineCollection({
     loader: glob({
       pattern: "**/*.md",
       base: `./src/data/${type}`,
     }),
     schema: baseSchema,
   });
+}
 
 export const collections = {
   blog: createCollection("blog"),

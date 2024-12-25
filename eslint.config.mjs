@@ -20,8 +20,6 @@ export default tseslint.config(
 
       // JavaScript
       "no-unused-vars": "off",
-      "func-style": ["error", "expression"],
-      "prefer-arrow-callback": "error",
       "prefer-destructuring": "error",
       "prefer-template": "error",
       "no-console": "warn",

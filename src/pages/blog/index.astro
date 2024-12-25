@@ -5,14 +5,19 @@ import Title from "~/components/ui/Title.astro";
 import Description from "~/components/ui/Description.astro";
 import PostList from "~/components/lists/PostList.astro";
 
+const meta = {
+  title: "Blog",
+  description:
+    "Sharing stories about software development and growth as a developer",
+};
+
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
 
-<BaseLayout description="Blog" title="Blog">
-  <Title>Blog</Title>
+<BaseLayout {...meta}>
+  <Title>{meta.title}</Title>
   <Description class="mb-6">
-    Sharing in-depth stories from the world of software development—challenges,
-    solutions, technical decisions, and growth as a developer.
+    {meta.description}
   </Description>
   <PostList posts={posts} type="blog" />
 </BaseLayout>

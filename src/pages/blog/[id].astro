@@ -6,14 +6,14 @@ import TagList from "~/components/posts/TagList.astro";
 import PostDateInfo from "~/components/posts/PostDateInfo.astro";
 import Prose from "~/components/posts/Prose.astro";
 
-export const getStaticPaths = async () => {
+export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
 
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
   }));
-};
+}
 
 const { post } = Astro.props;
 const { Content } = await render(post);

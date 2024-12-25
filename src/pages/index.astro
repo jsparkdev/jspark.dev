@@ -1,17 +1,21 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { socialLinks } from "~/data/social";
-import { metadata } from "~/data/site";
 import Title from "~/components/ui/Title.astro";
 import Link from "~/components/ui/Link.astro";
 import Description from "~/components/ui/Description.astro";
+
+const meta = {
+  title: "Junseong Park",
+  description:
+    "Frontend Developer building and shipping great products while growing in tech.",
+};
 ---
 
-<BaseLayout description={metadata.description} title={metadata.title}>
-  <Title>Junseong Park</Title>
+<BaseLayout {...meta}>
+  <Title>{meta.title}</Title>
   <Description class="mb-6">
-    Frontend Developer building and shipping great products while growing in
-    tech.
+    {meta.description}
   </Description>
   <ul class="flex flex-wrap gap-x-8 gap-y-3">
     {

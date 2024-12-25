@@ -1,5 +1,4 @@
 export const metadata = {
-  title: "Junseong Park",
-  description: "Junseong Park's personal website",
+  siteName: "Junseong Park",
   ogImage: "/og.png",
 } as const;
