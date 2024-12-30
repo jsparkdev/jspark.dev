@@ -1,0 +1,27 @@
+---
+import BaseHead from "~/components/BaseHead.astro";
+import Footer from "~/components/Footer.astro";
+import Header from "~/components/Header.astro";
+import "~/styles/tailwind.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead description={description} title={title} />
+  </head>
+  <body class="flex min-h-screen flex-col items-center antialiased">
+    <Header />
+    <main class="container mx-auto w-full max-w-4xl flex-grow px-4 py-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

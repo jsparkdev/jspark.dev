@@ -1,7 +1,5 @@
 .github
 .vscode
 
-*.svg
 *.md
-*.json
 *.yaml

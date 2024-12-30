@@ -1,13 +1,15 @@
 export type Project = {
-  name: string;
+  title: string;
   url: string;
   description: string;
+  technologies: string[];
 };
 
 export const projects = [
   {
-    name: "jspark.dev",
+    title: "jspark.dev",
     url: "https://jspark.dev",
     description: "My personal website (here!)",
+    technologies: ["Astro", "Tailwind CSS", "TypeScript"],
   },
 ] satisfies Project[];

@@ -1,10 +1,9 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import Layout from "~/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
-import Title from "~/components/ui/Title.astro";
-import TagList from "~/components/posts/TagList.astro";
-import PostDateInfo from "~/components/posts/PostDateInfo.astro";
-import Prose from "~/components/posts/Prose.astro";
+import { format } from "~/utils/date";
+import Prose from "~/components/Prose.astro";
+import Link from "~/components/Link.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -17,18 +16,20 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, date, lastModified = date, tags, lang } = post.data;
+const { title, description, date } = post.data;
 ---
 
-<BaseLayout description={description} lang={lang} title={title}>
-  <div class="md:px-40 lg:px-56">
-    <section class="mb-16">
-      <Title>{title}</Title>
-      <PostDateInfo date={date} lang={lang} lastModified={lastModified} />
-      <TagList tags={tags} />
-    </section>
+<Layout description={description} title={title}>
+  <article class="mx-auto max-w-2xl">
+    <h1 class="mb-4 text-3xl font-bold">{title}</h1>
+    <p class="mb-4 text-gray-500">{format(date)}</p>
     <Prose>
       <Content />
     </Prose>
-  </div>
-</BaseLayout>
+    <div class="mt-8">
+      <Link class="text-blue-600 hover:underline" href="/blog">
+        ← Back to all posts
+      </Link>
+    </div>
+  </article>
+</Layout>

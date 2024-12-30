@@ -1,23 +1,42 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import Title from "~/components/ui/Title.astro";
-import Description from "~/components/ui/Description.astro";
-import PostList from "~/components/lists/PostList.astro";
+import Layout from "~/layouts/Layout.astro";
+import { format } from "~/utils/date";
+import { posts } from "~/data/posts";
+import Link from "~/components/Link.astro";
 
 const meta = {
   title: "Blog",
   description:
     "Sharing stories about software development and growth as a developer",
 };
-
-const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
 
-<BaseLayout {...meta}>
-  <Title>{meta.title}</Title>
-  <Description class="mb-6">
-    {meta.description}
-  </Description>
-  <PostList posts={posts} type="blog" />
-</BaseLayout>
+<Layout {...meta}>
+  <div>
+    <h1 class="mb-6 text-3xl font-bold">My Blog</h1>
+    <div class="space-y-8">
+      {
+        posts.map((post) => (
+          <article class="border-b pb-8">
+            <h2 class="mb-2 text-2xl font-semibold">
+              <Link
+                class="text-blue-600 hover:underline"
+                href={`/blog/${post.id}`}
+              >
+                {post.data.title}
+              </Link>
+            </h2>
+            <p class="mb-2 text-sm text-gray-500">{format(post.data.date)}</p>
+            <p class="mb-4 text-gray-600">{post.data.description}</p>
+            <Link
+              class="text-blue-600 hover:underline"
+              href={`/blog/${post.id}`}
+            >
+              Read more
+            </Link>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

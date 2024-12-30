@@ -1,37 +1,76 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import { socialLinks } from "~/data/social";
-import Title from "~/components/ui/Title.astro";
-import Link from "~/components/ui/Link.astro";
-import Description from "~/components/ui/Description.astro";
+import Layout from "~/layouts/Layout.astro";
+import { projects } from "~/data/projects";
+import { format } from "~/utils/date";
+import { posts } from "~/data/posts";
+import Link from "~/components/Link.astro";
 
 const meta = {
   title: "Junseong Park",
   description:
-    "Frontend Developer building and shipping great products while growing in tech.",
+    "Hello! I'm Junseong Park, a Frontend Developer passionate about UI/UX. This is where I share my thoughts, projects, and experiences.",
 };
+
+const recentPosts = posts.slice(0, 3);
 ---
 
-<BaseLayout {...meta}>
-  <Title>{meta.title}</Title>
-  <Description class="mb-6">
-    {meta.description}
-  </Description>
-  <ul class="flex flex-wrap gap-x-8 gap-y-3">
-    {
-      socialLinks.map(({ name, url, icon: Icon }) => (
-        <li>
-          <Link
-            class="flex items-center gap-1 hover:text-gray-800 hover:underline lg:text-lg"
-            href={url}
-            target="_blank"
-            title={name}
-          >
-            <Icon size={20} />
-            {name}
-          </Link>
-        </li>
-      ))
-    }
-  </ul>
-</BaseLayout>
+<Layout {...meta}>
+  <div class="space-y-12">
+    <section>
+      <h2 class="mb-4 text-2xl font-bold">Welcome to My Personal Website</h2>
+      <p class="text-gray-600">
+        {meta.description}
+      </p>
+    </section>
+
+    <section>
+      <h2 class="mb-4 text-2xl font-bold">Recent Posts</h2>
+      <ul class="space-y-4">
+        {
+          recentPosts.map((post) => (
+            <li class="border-b pb-2">
+              <Link
+                class="text-blue-600 hover:underline"
+                href={`/blog/${post.id}`}
+              >
+                {post.data.title}
+              </Link>
+              <p class="text-sm text-gray-500">{format(post.data.date)}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-4">
+        <Link class="text-blue-600 hover:underline" href="/blog"
+          >View all posts</Link
+        >
+      </div>
+    </section>
+
+    <section>
+      <h2 class="mb-4 text-2xl font-bold">Featured Projects</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        {
+          projects.slice(0, 4).map((project) => (
+            <div class="rounded-lg border p-4 shadow-sm">
+              <h3 class="mb-2 text-xl font-semibold">{project.title}</h3>
+              <p class="mb-4 text-gray-600">{project.description}</p>
+              <Link
+                class="text-blue-600 hover:underline"
+                href={project.url}
+                target="_blank"
+              >
+                Learn more
+              </Link>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-6">
+        <Link class="text-blue-600 hover:underline" href="/projects"
+          >View all projects</Link
+        >
+      </div>
+    </section>
+  </div>
+</Layout>

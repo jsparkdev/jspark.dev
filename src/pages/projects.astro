@@ -1,8 +1,7 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import Title from "~/components/ui/Title.astro";
-import Description from "~/components/ui/Description.astro";
-import ProjectsList from "~/components/lists/ProjectsList.astro";
+import Layout from "~/layouts/Layout.astro";
+import { projects } from "~/data/projects";
+import Link from "~/components/Link.astro";
 
 const meta = {
   title: "Projects",
@@ -10,10 +9,33 @@ const meta = {
 };
 ---
 
-<BaseLayout {...meta}>
-  <Title>{meta.title}</Title>
-  <Description class="mb-6">
-    {meta.description}
-  </Description>
-  <ProjectsList />
-</BaseLayout>
+<Layout {...meta}>
+  <div>
+    <h1 class="mb-6 text-3xl font-bold">My Projects</h1>
+    <div class="grid gap-6 md:grid-cols-2">
+      {
+        projects.map((project) => (
+          <div class="rounded-lg border p-6 shadow-sm">
+            <h2 class="mb-2 text-2xl font-semibold">{project.title}</h2>
+            <p class="mb-4 text-gray-600">{project.description}</p>
+            <div class="mb-4">
+              <h3 class="mb-2 text-lg font-semibold">Technologies used:</h3>
+              <ul class="list-inside list-disc">
+                {project.technologies.map((tech) => (
+                  <li class="text-gray-600">{tech}</li>
+                ))}
+              </ul>
+            </div>
+            <Link
+              class="text-blue-600 hover:underline"
+              href={project.url}
+              target="_blank"
+            >
+              View project details
+            </Link>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

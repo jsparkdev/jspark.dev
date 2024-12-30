@@ -1,15 +1,9 @@
-import type { Lang } from "~/content.config";
-
-function format(date: Date, lang: Lang) {
-  return date.toLocaleDateString(lang, {
+function format(date: Date) {
+  return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
 }
 
-function getDatetime(date: Date) {
-  return date.toISOString().slice(0, 10);
-}
-
-export { format, getDatetime };
+export { format };

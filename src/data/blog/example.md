@@ -2,13 +2,6 @@
 title: Example Blog Post
 description: This is an example blog post.
 date: 2024-12-19
-lastModified: 2024-12-22
-category: Example
-tags:
-  - React
-  - TypeScript
-  - Next.js
-lang: en
 ---
 
 This is an example blog post. You can write anything you want here. You can use Markdown syntax to format your text.

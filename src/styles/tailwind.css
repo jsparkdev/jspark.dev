@@ -5,3 +5,7 @@
   --font-sans: "Geist", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

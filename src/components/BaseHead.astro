@@ -1,6 +1,5 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import { metadata } from "~/data/site";
 
 type Props = {
   title: string;
@@ -8,7 +7,7 @@ type Props = {
   ogImage?: string;
 };
 
-const { title, description, ogImage = metadata.ogImage } = Astro.props;
+const { title, description, ogImage = "/og.png" } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.url);
@@ -39,7 +38,7 @@ const ogImageURL = new URL(ogImage, Astro.url);
 <meta content="website" property="og:type" />
 <meta content={Astro.url} property="og:url" />
 <meta content={title} property="og:title" />
-<meta content={metadata.siteName} property="og:site_name" />
+<meta content="Junseong Park" property="og:site_name" />
 <meta content={description} property="og:description" />
 <meta content={ogImageURL} property="og:image" />
 

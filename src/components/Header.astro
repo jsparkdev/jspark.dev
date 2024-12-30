@@ -1,0 +1,26 @@
+---
+import MobileMenu from "./MobileMenu";
+import Logo from "~/assets/brands/logo.svg";
+import Link from "./Link.astro";
+---
+
+<header class="w-full bg-white shadow-md">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
+    <Link href="/">
+      <div class="flex items-center">
+        <Logo size={40} />
+        <h1 class="ml-2 text-xl font-bold">Junseong Park</h1>
+      </div>
+    </Link>
+    <nav class="hidden md:block">
+      <ul class="flex space-x-4">
+        <li><Link class="hover:text-blue-600" href="/">Home</Link></li>
+        <li><Link class="hover:text-blue-600" href="/blog">Blog</Link></li>
+        <li>
+          <Link class="hover:text-blue-600" href="/projects">Projects</Link>
+        </li>
+      </ul>
+    </nav>
+    <MobileMenu client:load />
+  </div>
+</header>

@@ -2,13 +2,6 @@
 title: Example Blog Post with HTML Code Blocks
 description: This is an example blog post using HTML for code blocks to avoid Markdown parsing issues.
 date: 2024-12-27
-lastModified: 2024-12-27
-category: Example
-tags:
-  - HTML
-  - Code Blocks
-  - Markdown
-lang: en
 ---
 
 This blog post demonstrates how to use HTML `<pre>` and `<code>` tags to include code blocks in your Markdown content without encountering parsing issues caused by backticks. This is especially useful when dealing with languages that use backticks or when you want to ensure consistent rendering across different Markdown parsers.

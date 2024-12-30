@@ -2,13 +2,6 @@
 title: Example Blog Post
 description: This is an example blog post.
 date: 2024-12-19
-lastModified: 2024-12-22
-category: Example
-tags:
-  - React
-  - TypeScript
-  - Next.js
-lang: en
 ---
 
 This is an example blog post demonstrating various Markdown features and including a Rust code example. This post aims to showcase how to embed code snippets effectively within a blog post using HTML's `<pre>` and `<code>` tags to avoid issues with triple backticks (` ``` `) being misinterpreted by AI models.
