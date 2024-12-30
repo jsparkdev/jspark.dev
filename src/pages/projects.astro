@@ -2,6 +2,8 @@
 import Layout from "~/layouts/Layout.astro";
 import { projects } from "~/data/projects";
 import Link from "~/components/Link.astro";
+import { Github } from "~/assets/social";
+import { ExternalLink } from "lucide-preact";
 
 const meta = {
   title: "Projects",
@@ -26,13 +28,24 @@ const meta = {
                 ))}
               </ul>
             </div>
-            <Link
-              class="text-blue-600 hover:underline"
-              href={project.url}
-              target="_blank"
-            >
-              View project details
-            </Link>
+            <div class="flex space-x-4">
+              <Link
+                class="text-primary flex items-center hover:underline"
+                href={project.github}
+                target="_blank"
+              >
+                <Github class="mr-1 h-4 w-4" />
+                GitHub
+              </Link>
+              <Link
+                class="text-primary flex items-center hover:underline"
+                href={project.url}
+                target="_blank"
+              >
+                <ExternalLink class="mr-1 h-4 w-4" />
+                Live Project
+              </Link>
+            </div>
           </div>
         ))
       }

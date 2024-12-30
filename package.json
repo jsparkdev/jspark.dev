@@ -42,6 +42,7 @@
   "lint-staged": {
     "*.{js,ts,tsx,astro,css,json}": [
       "prettier --write",
+      "prettier --check",
       "eslint --fix",
       "vitest related --run"
     ]

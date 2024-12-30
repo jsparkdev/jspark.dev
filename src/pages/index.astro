@@ -4,6 +4,8 @@ import { projects } from "~/data/projects";
 import { format } from "~/utils/date";
 import { posts } from "~/data/posts";
 import Link from "~/components/Link.astro";
+import { Github } from "~/assets/social";
+import { ExternalLink } from "lucide-preact";
 
 const meta = {
   title: "Junseong Park",
@@ -55,13 +57,24 @@ const recentPosts = posts.slice(0, 3);
             <div class="rounded-lg border p-4 shadow-sm">
               <h3 class="mb-2 text-xl font-semibold">{project.title}</h3>
               <p class="mb-4 text-gray-600">{project.description}</p>
-              <Link
-                class="text-blue-600 hover:underline"
-                href={project.url}
-                target="_blank"
-              >
-                Learn more
-              </Link>
+              <div class="flex space-x-4">
+                <Link
+                  class="text-primary flex items-center hover:underline"
+                  href={project.github}
+                  target="_blank"
+                >
+                  <Github class="mr-1 h-4 w-4" />
+                  GitHub
+                </Link>
+                <Link
+                  class="text-primary flex items-center hover:underline"
+                  href={project.url}
+                  target="_blank"
+                >
+                  <ExternalLink class="mr-1 h-4 w-4" />
+                  Live Project
+                </Link>
+              </div>
             </div>
           ))
         }
